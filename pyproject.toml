@@ -3,6 +3,7 @@ name = "chatgenievn"
 version = "0.1.0"
 description = "ChatGenieVN is an AI-powered chatbot designed to process user-uploaded documents and retrieve relevant images from the internet upon request."
 readme = "README.md"
+license = { file = "LICENSE.md" }
 requires-python = ">=3.12"
 dependencies = [
     "fastapi>=0.115.8",
@@ -41,3 +42,4 @@ init_forbid_extra = true
 init_typed = true
 warn_required_dynamic_aliases = true
 warn_untyped_fields = true
+
