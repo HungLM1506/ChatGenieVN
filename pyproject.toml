@@ -1,0 +1,43 @@
+[project]
+name = "chatgenievn"
+version = "0.1.0"
+description = "ChatGenieVN is an AI-powered chatbot designed to process user-uploaded documents and retrieve relevant images from the internet upon request."
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi>=0.115.8",
+    "mypy>=1.15.0",
+    "pytest>=8.3.4",
+    "uvicorn>=0.34.0",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+
+[tool.uv.sources]
+torch = [{ index = "pytorch-cu118", marker = "platform_system != 'Darwin'" }]
+torchvision = [{ index = "pytorch-cu118", marker = "platform_system != 'Darwin'" }]
+torchaudio = [{ index = "pytorch-cu118", marker = "platform_system != 'Darwin'" }]
+
+
+[[tool.uv.index]]
+name = "pytorch-cu118"
+url = "https://download.pytorch.org/whl/cu118"
+explicit = true
+
+[tool.uv.workspace]
+members = ["package/logger"]
+
+
+[tool.mypy]
+mypy_path = "src"
+python_version = "3.12"
+exclude = [".cache/", ".venv/", ".vscode/"]
+
+[tool.pydantic-mypy]
+init_forbid_extra = true
+init_typed = true
+warn_required_dynamic_aliases = true
+warn_untyped_fields = true
